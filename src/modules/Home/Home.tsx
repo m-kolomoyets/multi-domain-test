@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import clsx from 'clsx';
 import { useGetConfig } from '@/hooks/api/useConfigApi';
 import { CURRENT_YEAR } from './constants';
@@ -6,7 +6,13 @@ import { UsersList } from './components/UsersList';
 import s from './Home.module.css';
 
 const Home: React.FC = () => {
-    const { data: config } = useGetConfig();
+    const { data: config, isFetched } = useGetConfig();
+
+    useEffect(() => {
+        if (isFetched && !!config) {
+            document.title = config.name;
+        }
+    }, [config, isFetched]);
 
     return (
         <main className={clsx(s.wrap, 'full-height')}>
