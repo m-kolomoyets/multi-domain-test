@@ -8,6 +8,8 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, loadEnv } from 'vite';
 import eslint from 'vite-plugin-eslint';
 
+const PORT = 3000;
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), '');
@@ -44,7 +46,7 @@ export default defineConfig(({ mode }) => {
             ],
         },
         server: {
-            port: 3000,
+            port: PORT,
         },
         preview: {
             port: 4173,

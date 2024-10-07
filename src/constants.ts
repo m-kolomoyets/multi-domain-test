@@ -16,3 +16,10 @@ export const DEFAULT_TRANSITION = { type: 'linear', duration: 0.15 };
 export const ROUTES = {
     notFound: '/404',
 } as const;
+
+export const EMPTY_ARRAY = [];
+
+export const TEST_DOMAINS: Record<string, string> = {
+    '3000': 'vendor-x',
+    '3001': 'vendor-y',
+};

@@ -4,6 +4,7 @@
 :root {
     /* Common Variables */
     --color-white-100: hsla(0deg, 0%, 100%, 1);
+    --color-gray-300: hsla(0deg, 0%, 70%, 1);
     --color-primary: hsla(25deg, 88%, 52%, 1);
     --color-dark-900: hsla(180deg, 4%, 9%, 1);
     --color-dark-700: hsla(226.7deg, 10.6%, 16.7%, 1);

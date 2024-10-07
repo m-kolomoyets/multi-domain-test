@@ -1,30 +1,27 @@
 import { memo } from 'react';
 import clsx from 'clsx';
+import { useGetConfig } from '@/hooks/api/useConfigApi';
 import { CURRENT_YEAR } from './constants';
-import Counter from './components/Counter';
-import { Component as PhenomenonMarkIcon } from '@/icons/phenomenon-mark.svg?svgUse';
+import { UsersList } from './components/UsersList';
 import s from './Home.module.css';
 
 const Home: React.FC = () => {
+    const { data: config } = useGetConfig();
+
     return (
         <main className={clsx(s.wrap, 'full-height')}>
             <div className={s.inner}>
                 <header className={s.header}>
-                    <PhenomenonMarkIcon className={s.icon} />
+                    <img className={s.logo} src={config.logoUrl} alt={config.name} />
                     <h1 className={s.title}>
-                        <strong className={s.company}>Phenomenon</strong> <br /> <span className={s.vite}>Vite</span> +{' '}
-                        <span className={s.react}>React</span> +<span className={s.typescript}>Typescript</span> +{' '}
-                        <span className={s['tanstack-router']}>Tanstack Router</span>
+                        <strong className={s.company}>{config.name}</strong>
                     </h1>
                 </header>
-                <section className={s.content}>
-                    <Counter />
-                    <p className={s.description}>
-                        Start editing <code>src/modules/Home/Home.tsx</code> to start a project
-                    </p>
-                </section>
+                <UsersList />
             </div>
-            <footer className={s.footer}>&copy;&nbsp;{CURRENT_YEAR}, Phenomenon.studio</footer>
+            <footer className={s.footer}>
+                &copy;&nbsp;{CURRENT_YEAR}, {config.name}
+            </footer>
         </main>
     );
 };

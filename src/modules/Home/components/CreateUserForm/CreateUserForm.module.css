@@ -1,0 +1,47 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fields-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.input {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-gray-300);
+    font-family: inherit;
+    background-color: transparent;
+    color: var(--color-white-100);
+    flex: 1;
+}
+
+.cta {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--color-gray-300);
+    background-color: transparent;
+    color: var(--color-white-100);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cta:hover {
+    background-color: var(--color-dark-700);
+}
+
+.cta:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.error {
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 600;
+}
